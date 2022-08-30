@@ -48,7 +48,7 @@ function game(playerSelection) {
         computerScore.innerText++;
     }
 
-    if ((playerScore.innerText == 5) || (computerScore.innerText == 5)) {
+    if ((playerScore.innerText + computerScore.innerText) == 5) {
         if (playerScore.innerText > computerScore.innerText) {
             alert("You won the game!");
         }

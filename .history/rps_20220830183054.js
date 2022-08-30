@@ -48,7 +48,7 @@ function game(playerSelection) {
         computerScore.innerText++;
     }
 
-    if ((playerScore.innerText == 5) || (computerScore.innerText == 5)) {
+    if ((playerScore.innerText + computerScore.innerText) == 5) {
         if (playerScore.innerText > computerScore.innerText) {
             alert("You won the game!");
         }
@@ -62,6 +62,10 @@ function game(playerSelection) {
         computerScore.innerText = 0;
         roundResult.innerText = "";
     }
+}
+
+function printId() {
+    console.log(this.id);
 }
 
 const rock = document.querySelector("#rock");

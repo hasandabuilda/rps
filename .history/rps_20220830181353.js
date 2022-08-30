@@ -36,37 +36,33 @@ function playRound(playerSelection, computerSelection) {
 function game(playerSelection) {
     let playerScore = document.querySelector('#player-score');
     let computerScore = document.querySelector('#computer-score');
-    let roundResult = document.querySelector('#round-result');
 
-    let result = playRound(playerSelection, getComputerChoice());
-    roundResult.innerText = result;
-
-    if (result.includes("You Win!")) {
-        playerScore.innerText++;
+    let roundResult = playRound(playerSelection, getComputerChoice());
+    console.log(roundResult);
+    if (roundResult.includes("You Win!")) {
+        playerWinCount++;
     }
-    else if (result.includes("You Lose!")) {
-        computerScore.innerText++;
+    else if (roundResult.includes("You Lose!")) {
+        computerWinCount++;
     }
-
-    if ((playerScore.innerText == 5) || (computerScore.innerText == 5)) {
-        if (playerScore.innerText > computerScore.innerText) {
-            alert("You won the game!");
-        }
-        else if (computerScore.innerText > playerScore.innerText) {
-            alert("You lost the game!");
-        }
-        else {
-            alert("The game was a draw!");
-        }
-        playerScore.innerText = 0;
-        computerScore.innerText = 0;
-        roundResult.innerText = "";
+    if (playerWinCount > computerWinCount) {
+        console.log("You won the game!");
+    }
+    else if (computerWinCount > playerWinCount) {
+        console.log("You lost the game!");
+    }
+    else {
+        console.log("The game was a draw!");
     }
 }
 
+function printId() {
+    console.log(this.id);
+}
+
 const rock = document.querySelector("#rock");
-rock.addEventListener('click', () => game('rock'));
+rock.addEventListener('click', () => playRound('rock', getComputerChoice()));
 const paper = document.querySelector("#paper");
-paper.addEventListener('click', () => game('paper'));
+paper.addEventListener('click', printId);
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener('click', () => game('scissors'));
+scissors.addEventListener('click', printId);

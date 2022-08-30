@@ -48,7 +48,7 @@ function game(playerSelection) {
         computerScore.innerText++;
     }
 
-    if ((playerScore.innerText == 5) || (computerScore.innerText == 5)) {
+    if ((playerScore.innerText + computerScore.innerText) == 5) {
         if (playerScore.innerText > computerScore.innerText) {
             alert("You won the game!");
         }
@@ -64,9 +64,13 @@ function game(playerSelection) {
     }
 }
 
+function printId() {
+    console.log(this.id);
+}
+
 const rock = document.querySelector("#rock");
-rock.addEventListener('click', () => game('rock'));
+rock.addEventListener('click', () => playRound('rock', getComputerChoice()));
 const paper = document.querySelector("#paper");
-paper.addEventListener('click', () => game('paper'));
+paper.addEventListener('click', printId);
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener('click', () => game('scissors'));
+scissors.addEventListener('click', printId);
